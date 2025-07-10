@@ -4,7 +4,7 @@ Segmenta is a full-stack, real-time web application inspired by Splitwise, desig
 
 ---
 
-https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/
+https://segmenta-flax.vercel.app/
 
 ---
 
@@ -28,7 +28,7 @@ https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/
 
 # project walkthrough
 <p align="center">
-<img src="./recording-2025-07-11-014122.gif" alt="BrainSeg Application Demo"/>
+<img src="./screenshots/Recording-2025-07-11-014122.gif" alt="BrainSeg Application Demo"/>
 </p>
 ---
 
