@@ -32,18 +32,9 @@ export function ExpenseList({
     );
   }
 
-  // Helper to get user details from cache or look up from expense
+  // Helper to get user details from the provided map
   const getUserDetails = (userId) => {
-    // For the group context, we need to look up members from somewhere else
-    // This is a simplified fallback
-    return {
-      name:
-        userId === currentUser?._id
-          ? "You"
-          : userLookupMap[userId]?.name || "Other User",
-      imageUrl: null,
-      id: userId,
-    };
+    return userLookupMap[userId];
   };
 
   // Check if the user can delete an expense (creator or payer)
@@ -74,8 +65,10 @@ export function ExpenseList({
 
   return (
     <div className="flex flex-col gap-4">
-      {expenses.map((expense) => {
-        const payer = getUserDetails(expense.paidByUserId, expense);
+      {expenses
+        .filter((expense) => getUserDetails(expense.paidByUserId)) // Ensure payer exists
+        .map((expense) => {
+        const payer = getUserDetails(expense.paidByUserId);
         const isCurrentUserPayer = expense.paidByUserId === currentUser?._id;
         const category = getCategoryById(expense.category);
         const CategoryIcon = getCategoryIcon(category.id);
@@ -128,7 +121,7 @@ export function ExpenseList({
                           (isCurrentUserPayer ? (
                             <span className="text-green-600">You paid</span>
                           ) : (
-                            `${expense.payer.name} paid`
+                            `${payer.name} paid`
                           ))}
                       </div>
                     )}
@@ -152,7 +145,7 @@ export function ExpenseList({
               <div className="mt-3 text-sm">
                 <div className="flex gap-2 flex-wrap">
                   {expense.splits.map((split, idx) => {
-                    const splitUser = getUserDetails(split.userId, expense);
+                    const splitUser = getUserDetails(split.userId);
                     const isCurrentUser = split.userId === currentUser?._id;
                     const shouldShow =
                       showOtherPerson ||
@@ -160,7 +153,7 @@ export function ExpenseList({
                         (split.userId === currentUser?._id ||
                           split.userId === otherPersonId));
 
-                    if (!shouldShow) return null;
+                    if (!shouldShow || !splitUser) return null;
 
                     return (
                       <Badge
