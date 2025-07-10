@@ -4,13 +4,11 @@ Segmenta is a full-stack, real-time web application inspired by Splitwise, desig
 
 ---
 
-### 🚀 Live Demo
-
-**[https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/)**
+https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/
 
 ---
 
-### 📸 Screenshots
+### project glimpses
 
 *A look at the Segmenta application's clean and intuitive interface.*
 
