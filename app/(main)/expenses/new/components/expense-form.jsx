@@ -247,9 +247,18 @@ export function ExpenseForm({ type = "individual", onSuccess }) {
                   setValue("groupId", group.id);
 
                   // Update participants with the group members
-                  if (group.members && Array.isArray(group.members)) {
-                    // Set the participants once, don't re-set if they're the same
-                    setParticipants(group.members);
+                  if (
+                    group.members &&
+                    Array.isArray(group.members) &&
+                    group.members.every((m) => m) // Ensure no null/undefined members
+                  ) {
+                    const groupMembers = group.members.map((member) => ({
+                      id: member.id,
+                      name: member.name,
+                      email: member.email,
+                      imageUrl: member.imageUrl,
+                    }));
+                    setParticipants(groupMembers);
                   }
                 }
               }}
