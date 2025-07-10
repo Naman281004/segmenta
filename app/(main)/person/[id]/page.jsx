@@ -19,6 +19,7 @@ export default function PersonExpensesPage() {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("expenses");
 
+  const { data: currentUser } = useConvexQuery(api.users.getCurrentUser);
   const { data, isLoading } = useConvexQuery(
     api.expenses.getExpensesBetweenUsers,
     { userId: params.id }
@@ -28,6 +29,15 @@ export default function PersonExpensesPage() {
     return (
       <div className="container mx-auto py-12">
         <BarLoader width={"100%"} color="#36d7b7" />
+      </div>
+    );
+  }
+
+  if (!data || !currentUser) {
+    // Handle case where data or current user is not yet loaded
+    return (
+      <div className="container mx-auto py-12 text-center">
+        <p>No expense data found.</p>
       </div>
     );
   }
@@ -132,14 +142,20 @@ export default function PersonExpensesPage() {
             expenses={expenses}
             showOtherPerson={false}
             otherPersonId={params.id}
-            userLookupMap={{ [otherUser.id]: otherUser }}
+            userLookupMap={{
+              [otherUser.id]: otherUser,
+              [currentUser._id]: currentUser,
+            }}
           />
         </TabsContent>
 
         <TabsContent value="settlements" className="space-y-4">
           <SettlementList
             settlements={settlements}
-            userLookupMap={{ [otherUser.id]: otherUser }}
+            userLookupMap={{
+              [otherUser.id]: otherUser,
+              [currentUser._id]: currentUser,
+            }}
           />
         </TabsContent>
       </Tabs>
