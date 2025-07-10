@@ -1,7 +1,7 @@
 # Segmenta: AI-Powered Expense Splitting and Management
 
 <p align="center">
-  <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Application Screenshot"/>
+  <img src="./screenshots/Screenshot 2025-07-10 224509.png" alt="Segmenta Application Screenshot"/>
   <br/>
   <strong><a href="https://segmenta-flax.vercel.app">View Live Application</a></strong>
 </p>
