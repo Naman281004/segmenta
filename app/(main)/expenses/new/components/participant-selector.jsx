@@ -59,7 +59,9 @@ export function ParticipantSelector({ participants, onParticipantsChange }) {
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap gap-2">
-        {participants.map((participant) => (
+        {participants
+          .filter(Boolean)
+          .map((participant) => (
           <Badge
             key={participant.id}
             variant="secondary"
