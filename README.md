@@ -15,8 +15,8 @@ Segmenta is a full-stack, real-time web application inspired by Splitwise, desig
 *A look at the Segmenta application's clean and intuitive interface.*
 
 <p align="center">
-  <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Segmenta Hero Section" width="49%"/>
-  <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Dashboard" width="49%"/>
+  <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Dashboard" />
+  <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Segmenta Hero Section" />
 </p>
 
 | Dashboard | Add New Expense | View Contacts |
