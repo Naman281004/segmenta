@@ -1,42 +1,75 @@
-# Segmenta: AI-Powered Expense Splitting and Management
+# Segmenta: AI-Powered Expense Manager
+
+Segmenta is a full-stack, real-time web application inspired by Splitwise, designed to simplify expense tracking and management among groups. Built with a modern tech stack, it allows users to create groups, add friends, and settle balances seamlessly. The platform features secure user authentication, real-time data synchronization, and leverages AI to provide users with intelligent spending insights via email.
+
+---
+
+### 🚀 Live Demo
+
+**[https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/)**
+
+---
+
+### 📸 Screenshots
+
+*A look at the Segmenta application's clean and intuitive interface.*
 
 <p align="center">
-  <img src="./screenshots/Screenshot 2025-07-10 224509.png" alt="Segmenta Application Screenshot"/>
-  <br/>
-  <strong><a href="https://segmenta-flax.vercel.app">View Live Application</a></strong>
+  <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Segmenta Hero Section" width="49%"/>
+  <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Dashboard" width="49%"/>
 </p>
 
-Segmenta is a full-stack web application inspired by Splitwise, designed to simplify expense tracking and management among groups. Built with a modern tech stack, it allows users to create groups, add expenses, and settle balances seamlessly. The platform features secure user authentication, real-time data synchronization, and leverages AI to provide users with intelligent spending insights via email.
-
-The frontend is built with **Next.js**, **React**, and styled with **Tailwind CSS** and **Shadcn UI**, offering a responsive and intuitive user experience. The backend is powered by **Convex**, a serverless platform that provides a real-time database, cloud functions, and seamless integration with authentication services like **Clerk**. Asynchronous background jobs for sending AI-powered email reports are handled by **Inngest**, using **Google's Gemini API** for content generation and **Resend** for email delivery.
-
-## Key Features
-
--   **Secure User Authentication:** Managed by Clerk for robust and secure user sign-up and sign-in.
--   **Group & Contact Management:** Easily create groups, add friends, and manage contacts.
--   **Expense Tracking:** Add new expenses with detailed descriptions, amounts, and participants.
--   **Flexible Splitting Options:** Split expenses equally among participants.
--   **Real-time Balance Updates:** View up-to-date balances with friends and within groups.
--   **Simplified Settlements:** Record payments to settle debts and clear balances.
--   **AI-Powered Spending Insights:** Receive periodic emails with AI-generated summaries of your spending habits.
--   **Responsive Design:** A clean, modern UI that works beautifully across all devices.
-
-## Screenshots
-
-| Dashboard | New Expense | Group View |
+| Dashboard | Add New Expense | View Contacts |
 | :---: | :---: | :---: |
-| <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Dashboard Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="New Expense Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224620.png" alt="Group View Screenshot" width="100%"/> |
+| <img src="./screenshots/Screenshot 2025-07-10 224509.png" alt="Dashboard Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224620.png" alt="New Expense Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="Contacts Screenshot" width="100%"/> |
 
-## Technology Stack
+---
 
-| Area | Technologies |
-| --- | --- |
-| **Frontend** | Next.js, React, Tailwind CSS, Shadcn UI, Clerk |
-| **Backend** | Convex (Real-time Database, Cloud Functions) |
-| **Background Jobs & AI**| Inngest, Google Gemini API, Resend |
-| **Deployment** | Vercel, GitHub |
+## ✨ Key Features
 
-## Local Setup and Installation
+-   **Real-time Group & Expense Management:** Create groups, add friends, and track shared expenses with real-time updates for all members.
+-   **Secure User Authentication:** Managed by **Clerk** for robust and secure user sign-up, sign-in, and session management.
+-   **AI-Powered Spending Insights:** Receive periodic emails with AI-generated summaries of your spending habits, powered by **Google's Gemini API**.
+-   **Flexible Splitting Options:** Split expenses equally among participants.
+-   **Simplified Settlements:** Easily record payments to settle debts and clear balances between users or within groups.
+-   **Responsive & Modern UI:** Built with **Next.js**, **Tailwind CSS**, and **Shadcn UI** for a clean, intuitive experience across all devices.
+-   **Asynchronous Background Jobs:** Email delivery and AI-insight generation are handled by **Inngest**, ensuring the user experience is never blocked by long-running tasks.
+
+---
+
+## 🛠️ Tech Stack
+
+| Area                     | Technologies                                       |
+| ------------------------ | -------------------------------------------------- |
+| **Frontend**             | Next.js, React, Tailwind CSS, Shadcn UI            |
+| **Backend & Database**   | Convex (Real-time Database, Serverless Functions)  |
+| **Authentication**       | Clerk                                              |
+| **Background Jobs & AI** | Inngest, Google Gemini API, Resend                 |
+| **Deployment**           | Vercel, GitHub                                     |
+
+---
+
+## 🔬 Technical Deep Dive
+
+### 1. Real-time Serverless Architecture with Convex
+
+This project avoids a traditional monolithic backend server in favor of a modern, serverless architecture powered by Convex.
+
+-   **Real-time Database:** Convex provides a real-time database out of the box. The frontend subscribes to queries, and the UI updates automatically whenever data changes on the backend. This is how all users in a group can see new expenses or settlements appear instantly without needing to refresh the page.
+-   **Serverless Functions:** All backend logic, such as creating expenses or calculating balances, is written as TypeScript functions that run in a serverless environment. Convex manages the infrastructure, scaling, and execution of this code.
+-   **Seamless Authentication Integration:** Convex is tightly integrated with Clerk. When a user logs in via Clerk on the frontend, the JWT they receive is passed with every request to the backend. Convex automatically validates this token and provides an authenticated context to the serverless functions, making it easy to identify the current user and enforce security rules.
+
+### 2. AI-Powered Insights with Inngest and Gemini
+
+A key feature of Segmenta is its ability to send users intelligent summaries of their spending.
+
+-   **Asynchronous Processing with Inngest:** To avoid blocking the user experience or creating long-running serverless functions, the task of generating and sending emails is offloaded to Inngest. This is an event-driven system designed for reliable background jobs.
+-   **AI Content Generation:** An Inngest function calls the **Google Gemini API**, sending it a user's recent expense data. The AI processes this information and generates a natural language summary of their spending habits, identifying top categories and potential insights.
+-   **Reliable Email Delivery:** The AI-generated content is then passed to the **Resend API** for reliable email delivery to the user.
+
+---
+
+## 🚀 Getting Started Locally
 
 To run this project locally, please follow the steps below.
 
@@ -49,7 +82,7 @@ To run this project locally, please follow the steps below.
 
 ```bash
 git clone https://github.com/Naman281004/segmenta.git
-cd ai-splitwise-clone-main
+cd segmenta
 ```
 
 ### 2. Install Dependencies
@@ -89,15 +122,13 @@ RESEND_API_KEY=
 # Get this from Google AI Studio (for spending insights)
 GEMINI_API_KEY=
 ```
-Your `CONVEX_DEPLOYMENT` variable will be managed automatically by the Convex CLI.
 
 ### 5. Seed the Database
 
-To populate the application with initial sample data, run the seed script:
+To populate the application with initial sample data, you first need to create at least four user accounts by signing up in the application. Then, run the seed script:
 ```bash
-npx convex run seed
+npx convex run seed:seedDatabase
 ```
-*Note: You may need to adjust the `seed.js` script to match the users you have created in your Clerk development instance.*
 
 ### 6. Run the Application
 
@@ -105,3 +136,4 @@ Ensure the Convex development server is running in one terminal (`npx convex dev
 ```bash
 npm run dev
 ```
+The application will be accessible at `http://localhost:3000`.
