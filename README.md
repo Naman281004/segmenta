@@ -14,12 +14,16 @@ https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/
 
 <p align="center">
   <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Dashboard" />
-  <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Segmenta Hero Section" />
+  <img src="./screenshots/Screenshot 2025-07-10 224509.png" alt="Segmenta Hero Section" />
 </p>
 
-| Dashboard | Add New Expense | View Contacts |
-| :---: | :---: | :---: |
-| <img src="./screenshots/Screenshot 2025-07-10 224509.png" alt="Dashboard Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224620.png" alt="New Expense Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="Contacts Screenshot" width="100%"/> |
+| Dashboard |
+| :---: |
+| <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Dashboard Screenshot" width="100%"/> |
+| Add New Expense |
+|<img src="./screenshots/Screenshot 2025-07-10 224620.png" alt="New Expense Screenshot" width="100%"/> |
+|View Contacts |
+| <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="Contacts Screenshot" width="100%"/> |
 
 ---
 
