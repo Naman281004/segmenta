@@ -25,6 +25,11 @@ https://segmenta-flax.vercel.app/](https://segmenta-flax.vercel.app/
 |View Contacts |
 | <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="Contacts Screenshot" width="100%"/> |
 
+
+# project walkthrough
+<p align="center">
+<img src="./recording-2025-07-11-014122.gif" alt="BrainSeg Application Demo"/>
+</p>
 ---
 
 ## ✨ Key Features
