@@ -27,7 +27,7 @@ export function GroupSelector({ onChange }) {
     if (data?.selectedGroup && onChange) {
       onChange(data.selectedGroup);
     }
-  }, [data, onChange]);
+  }, [data?.selectedGroup, onChange]);
 
   const handleGroupChange = (groupId) => {
     setSelectedGroupId(groupId);
