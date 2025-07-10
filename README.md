@@ -1,7 +1,7 @@
 # Segmenta: AI-Powered Expense Splitting and Management
 
 <p align="center">
-  <em>(Your GIF demo will go here. You can add it later.)</em>
+  <img src="./screenshots/Screenshot 2025-07-10 224557.png" alt="Segmenta Application Screenshot"/>
   <br/>
   <strong><a href="https://segmenta-flax.vercel.app">View Live Application</a></strong>
 </p>
@@ -23,11 +23,9 @@ The frontend is built with **Next.js**, **React**, and styled with **Tailwind CS
 
 ## Screenshots
 
-*(You can add your screenshots to the project and reference them here.)*
-
 | Dashboard | New Expense | Group View |
 | :---: | :---: | :---: |
-| *(Dashboard Screenshot)* | *(New Expense Screenshot)* | *(Group View Screenshot)* |
+| <img src="./screenshots/Screenshot 2025-07-10 224516.png" alt="Dashboard Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224604.png" alt="New Expense Screenshot" width="100%"/> | <img src="./screenshots/Screenshot 2025-07-10 224620.png" alt="Group View Screenshot" width="100%"/> |
 
 ## Technology Stack
 
@@ -50,7 +48,7 @@ To run this project locally, please follow the steps below.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Naman281004/segmenta.git
 cd ai-splitwise-clone-main
 ```
 
@@ -107,4 +105,3 @@ Ensure the Convex development server is running in one terminal (`npx convex dev
 ```bash
 npm run dev
 ```
-The application will be accessible at `http://localhost:3000`.
